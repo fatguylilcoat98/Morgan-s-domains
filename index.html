@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Burgess Collection | High-Performance Domains</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --corvette-red: #c41e3a; /* Torch Red */
+            --chrome: #f0f0f0;
+            --carbon: #1a1a1a;
+            --asphalt: #0f0f0f;
+            --border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        body { 
+            background-color: var(--asphalt); 
+            color: var(--chrome); 
+            font-family: 'Montserrat', sans-serif; 
+            margin: 0; 
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Subtle Carbon Fiber Texture Overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.03;
+            pointer-events: none;
+            background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+        }
+
+        header { 
+            text-align: center; 
+            padding: 100px 20px;
+            background: linear-gradient(180deg, #222 0%, var(--asphalt) 100%);
+            border-bottom: 4px solid var(--corvette-red);
+        }
+
+        .crossed-flags {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--corvette-red);
+            letter-spacing: 10px;
+            margin-bottom: 20px;
+            display: block;
+            font-weight: bold;
+        }
+
+        h1 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: clamp(2.5rem, 6vw, 4rem); 
+            margin: 0; 
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .subtitle { 
+            font-size: 0.8rem; 
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-top: 10px;
+        }
+
+        .container { 
+            max-width: 1200px; 
+            margin: 60px auto; 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+            gap: 40px; 
+            padding: 0 30px;
+        }
+
+        .card { 
+            background: var(--carbon); 
+            padding: 50px 40px; 
+            border: var(--border);
+            border-top: 2px solid transparent;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        .card:hover { 
+            border-top: 2px solid var(--corvette-red);
+            background: #222;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+        }
+
+        .generation {
+            font-size: 0.65rem;
+            background: var(--corvette-red);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 2px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .domain-name { 
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem; 
+            color: #fff; 
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .specs {
+            font-size: 0.85rem;
+            color: #777;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .description {
+            font-size: 0.95rem;
+            color: #bbb;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .btn { 
+            display: block; 
+            padding: 16px; 
+            background: transparent;
+            border: 1px solid var(--corvette-red);
+            color: var(--corvette-red); 
+            text-decoration: none; 
+            font-size: 0.8rem; 
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 700;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .btn:hover { 
+            background: var(--corvette-red); 
+            color: #fff; 
+            box-shadow: 0 0 20px rgba(196, 30, 58, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            padding: 80px 20px;
+            color: #444;
+            font-size: 0.7rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            border-top: var(--border);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <span class="crossed-flags">M // B</span>
+    <h1>Morgan Burgess</h1>
+    <div class="subtitle">The Digital Stingray Registry</div>
+</header>
+
+<div class="container">
+    <div class="card">
+        <span class="generation">Gen 1 • Est. 1999</span>
+        <div class="domain-name">ClassicAsset.com</div>
+        <div class="specs">Original Owner • Low Latency</div>
+        <p class="description">A true survivor. This domain has been held in a private collection for over 25 years. Matching numbers history and high-tier authority.</p>
+        <a href="mailto:morgan@burgess.com?subject=Inquiry: ClassicAsset.com" class="btn">Inquire for Specs</a>
+    </div>
+
+    <div class="card">
+        <span class="generation">Gen 2 • Est. 2004</span>
+        <div class="domain-name">VelocityHub.net</div>
+        <div class="specs">Performance Tuned • SEO Ready</div>
+        <p class="description">High-performance branding with two decades of legacy. Perfect for a venture that requires speed and established trust.</p>
+        <a href="mailto:morgan@burgess.com?subject=Inquiry: VelocityHub.net" class="btn">Inquire for Specs</a>
+    </div>
+</div>
+
+<footer>
+    &copy; 2026 Morgan Burgess • Private Collection • Built for Speed
+</footer>
+
+</body>
+</html>

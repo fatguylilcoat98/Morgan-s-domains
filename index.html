@@ -3,297 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Burgess Concours Registry | Vintage Digital Assets</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <title>Morgan Burgess | Motor, Space & Digital Assets</title>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Oswald:wght@400;700&family=Roboto+Condensed:wght@300;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --brass: #bfa473;
-            --deep-red: #8a2a2a;
-            --aged-paper: #f4ecd8;
-            --leather-brown: #3d2b1f;
-            --off-black: #1a1a1a;
+            --cherry-red: #b31b1b;
+            --chrome-silver: #d1d1d1;
+            --asphalt: #222222;
+            --cream: #fdf5e6;
+            --teal: #008080; /* Classic Bel Air Teal */
         }
 
         body { 
-            background-color: var(--leather-brown);
-            color: var(--off-black); 
-            font-family: 'Lora', serif; 
-            margin: 0; 
-            padding: 0;
-            line-height: 1.6;
-            /* Vintage paper texture overlay */
-            background-image: url('https://www.transparenttextures.com/patterns/aged-paper.png');
+            background-color: var(--asphalt); 
+            color: var(--cream); 
+            font-family: 'Roboto Condensed', sans-serif; 
+            margin: 0; padding: 0;
         }
 
-        /* Faux Navigation Bar */
-        nav {
+        /* Distressed Paper Texture Overlay */
+        body::before {
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.05; pointer-events: none;
+            background-image: url('https://www.transparenttextures.com/patterns/cardboard-flat.png');
+        }
+
+        /* HEADER / HERO */
+        header { 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1605515298946-d062f2e9da53?auto=format&fit=crop&q=80&w=1600') center/cover;
+            height: 500px;
             display: flex;
+            flex-direction: column;
             justify-content: center;
-            background: var(--off-black);
-            padding: 15px 0;
-            border-bottom: 3px solid var(--brass);
-        }
-        nav a {
-            color: var(--brass);
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            margin: 0 20px;
-            font-weight: 700;
-            /* These are fake links */
-            pointer-events: none; 
-        }
-        nav a.active { color: var(--aged-paper); }
-
-
-        /* Hero Section with Vintage Corvette Image */
-        .hero {
-            position: relative;
-            height: 60vh;
-            min-height: 400px;
-            background: url('https://images.unsplash.com/photo-1539149399668-39d622157540?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-            display: flex;
             align-items: center;
-            justify-content: center;
+            border-bottom: 8px solid var(--cherry-red);
             text-align: center;
-            border-bottom: 5px double var(--brass);
         }
 
-        /* Sepia/Vintage Filter Overlay on the image */
-        .hero::before {
-            content: '';
-            position: absolute;
-            top:0; left:0; right:0; bottom:0;
-            background: rgba(61, 43, 31, 0.7); /* Brown overlay */
-            mix-blend-mode: multiply;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            color: var(--aged-paper);
-            padding: 40px;
-            border: 2px solid var(--brass);
-            background: rgba(26, 26, 26, 0.8);
-            max-width: 700px;
+        .logo-badge {
+            border: 4px solid var(--cream);
+            padding: 20px 40px;
+            background: rgba(179, 27, 27, 0.9);
+            box-shadow: 0 0 0 5px rgba(179, 27, 27, 0.9), 0 10px 30px rgba(0,0,0,0.5);
         }
 
         h1 { 
-            font-family: 'Cinzel Decorative', cursive;
-            font-size: clamp(2rem, 5vw, 3.5rem); 
-            margin: 0 0 10px 0;
-            color: var(--brass);
+            font-family: 'Abril+Fatface', serif; 
+            font-size: 4rem; 
+            margin: 0; 
             text-transform: uppercase;
             letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
-        .hero-subtitle {
-             font-size: 1.1rem;
-             font-style: italic;
-             color: var(--aged-paper);
-        }
-
-        /* Main Container */
-        .container { 
-            max-width: 1100px; 
-            margin: 60px auto; 
-            padding: 0 30px;
-        }
-
-        .intro-text {
-            text-align: center;
-            margin-bottom: 60px;
+        .tagline {
+            font-family: 'Oswald', sans-serif;
             font-size: 1.2rem;
-            color: var(--aged-paper);
-        }
-
-        /* Grid for Domain Cards */
-        .grid {
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-            gap: 40px; 
-        }
-
-        /* The "Auction Catalog" Style Card */
-        .card { 
-            background: var(--aged-paper);
-            border: 3px double var(--brass);
-            box-shadow: 10px 10px 30px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Decorative header for the card */
-        .card-header {
-            background: var(--off-black);
-            color: var(--brass);
-            padding: 10px;
-            text-align: center;
-            font-size: 0.8rem;
+            letter-spacing: 6px;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            border-bottom: 2px solid var(--brass);
         }
 
-        .card-body {
-            padding: 30px;
-            text-align: center;
+        /* SECTION NAV */
+        .section-nav {
+            display: flex;
+            justify-content: center;
+            background: var(--cream);
+            padding: 20px 0;
         }
 
-        /* Vintage Dashboard Dial Image */
-        .card-image {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 20px;
-            border-radius: 50%;
-            border: 3px solid var(--brass);
-            /* Placeholder image of a vintage speedometer */
-            background: url('https://images.unsplash.com/photo-1583295386576-6e240f4c6365?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80') center/cover;
-            filter: sepia(0.5) contrast(1.2);
-        }
-
-        .domain-name { 
-            font-family: 'Cinzel Decorative', cursive;
-            font-size: 1.8rem; 
-            color: var(--deep-red); 
-            margin-bottom: 10px;
-            word-break: break-all;
-        }
-
-        .provenance {
-            font-style: italic;
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--brass);
-        }
-
-        .specs-list {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 30px;
-            text-align: left;
-            display: inline-block;
-        }
-        
-        .specs-list li {
-            margin-bottom: 8px;
+        .section-nav a {
+            color: var(--asphalt);
+            text-decoration: none;
             font-weight: 700;
-            color: var(--off-black);
+            text-transform: uppercase;
+            margin: 0 30px;
+            font-size: 0.9rem;
+            border-bottom: 2px solid transparent;
         }
-        .specs-list span {
-            font-weight: 400;
-            color: var(--deep-red);
-            margin-left: 10px;
+
+        .section-nav a:hover { border-bottom: 2px solid var(--cherry-red); }
+
+        .container { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
+
+        h2 { 
+            font-family: 'Abril+Fatface', serif; 
+            font-size: 2.5rem; 
+            color: var(--cherry-red); 
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 1px 1px var(--cream);
         }
+
+        /* GRID SYSTEM */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+
+        .card { 
+            background: #2a2a2a; 
+            border: 1px solid #444;
+            padding: 0;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .card:hover { border-color: var(--cherry-red); transform: scale(1.02); }
+
+        .card-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            border-bottom: 4px solid var(--cherry-red);
+        }
+
+        .card-content { padding: 25px; }
+
+        .item-title { font-family: 'Oswald', sans-serif; font-size: 1.8rem; margin-bottom: 10px; color: #fff; }
+
+        .label {
+            display: inline-block;
+            background: var(--teal);
+            color: #fff;
+            padding: 2px 10px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .desc { color: #aaa; font-size: 0.95rem; margin-bottom: 20px; line-height: 1.4; }
 
         .btn { 
-            display: block; 
-            width: 100%;
-            padding: 15px 0; 
-            background: var(--off-black);
-            border: 1px solid var(--brass);
-            color: var(--brass); 
-            text-decoration: none; 
-            font-size: 0.9rem; 
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 700;
-            transition: all 0.3s;
+            display: inline-block; width: 100%; text-align: center;
+            padding: 12px 0; background: var(--cherry-red); color: #fff;
+            text-decoration: none; font-weight: 700; text-transform: uppercase;
+            font-size: 0.8rem; transition: 0.3s;
         }
 
-        .btn:hover { 
-            background: var(--deep-red); 
-            color: var(--aged-paper);
-            border-color: var(--deep-red);
+        .btn:hover { background: #fff; color: var(--cherry-red); }
+
+        /* STORAGE & OFFICE SPECIFIC */
+        .secondary-section {
+            background: #1a1a1a;
+            padding: 80px 0;
+            margin-top: 100px;
+            border-top: 1px dashed var(--chrome-silver);
         }
 
-        footer {
-            background: var(--off-black);
-            text-align: center;
-            padding: 60px 20px;
-            color: var(--brass);
-            border-top: 5px double var(--brass);
-            margin-top: 60px;
-        }
-        .footer-logo {
-             font-family: 'Cinzel Decorative', cursive;
-             font-size: 1.5rem;
-             margin-bottom: 20px;
-        }
-        .copyright {
-            font-size: 0.8rem;
-            opacity: 0.7;
-        }
+        footer { text-align: center; padding: 60px; font-size: 0.8rem; color: #666; letter-spacing: 2px; }
     </style>
 </head>
 <body>
 
-<nav>
-    <a href="#" class="active">The Registry</a>
-    <a href="#">Garage Finds</a>
-    <a href="#">About Morgan</a>
-    <a href="#">Private Treaty</a>
-</nav>
-
-<header class="hero">
-    <div class="hero-content">
-        <h1>The Burgess Concours Registry</h1>
-        <div class="hero-subtitle">Curators of Fine Digital Classics since 1998.</div>
+<header>
+    <div class="logo-badge">
+        <h1>BURGESS</h1>
+        <div class="tagline">Estates • Storage • Motors</div>
     </div>
 </header>
 
-<div class="container">
-    <div class="intro-text">
-        <p>Like a barn-find Stingray waiting for the right restorer, these digital assets have been privately held in a climate-controlled portfolio for over two decades. Rare, impeccably maintained, and ready for the auction block.</p>
-    </div>
+<div class="section-nav">
+    <a href="#domains">Premium Domains</a>
+    <a href="#storage">Vehicle Storage</a>
+    <a href="#offices">Office Rentals</a>
+</div>
 
+<div class="container" id="domains">
+    <h2>The Digital Garage <br><small style="font-size: 1rem; color: #888;">Domain Names for Sale</small></h2>
     <div class="grid">
         <div class="card">
-            <div class="card-header">Lot No. 1999-A • Stingray Class</div>
-            <div class="card-body">
-                <div class="card-image"></div> <div class="domain-name">VintageMotor.com</div>
-                <div class="provenance">Provenance: Single Owner, Acquired 1999.</div>
-                
-                <ul class="specs-list">
-                    <li>Condition: <span>Concours Ready</span></li>
-                    <li>History: <span>Clean, No Accidents</span></li>
-                    <li>Authority: <span>Tier 1 Vintage</span></li>
-                </ul>
-
-                <a href="mailto:morgan@burgess.com?subject=Bid Inquiry: VintageMotor.com" class="btn">View Dossier & Inquire</a>
+            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&q=80&w=800');"></div>
+            <div class="card-content">
+                <span class="label">Registered 1999</span>
+                <div class="item-title">ClassicChrome.com</div>
+                <p class="desc">A powerhouse domain with 25+ years of history. Perfect for automotive branding or parts retail.</p>
+                <a href="mailto:morgan@burgess.com" class="btn">Inquire for Pricing</a>
             </div>
         </div>
-
         <div class="card">
-            <div class="card-header">Lot No. 2003-B • Big Block Class</div>
-            <div class="card-body">
-                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1592853625601-bb9d23da12fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80');"></div>
-                <div class="domain-name">RedlineMedia.net</div>
-                <div class="provenance">Provenance: Private Collection, Acquired 2003.</div>
-                
-                <ul class="specs-list">
-                    <li>Condition: <span>Performance Tuned</span></li>
-                    <li>History: <span>Continuous Registration</span></li>
-                    <li>Authority: <span>High Octane</span></li>
-                </ul>
-
-                <a href="mailto:morgan@burgess.com?subject=Bid Inquiry: RedlineMedia.net" class="btn">View Dossier & Inquire</a>
+            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&q=80&w=800');"></div>
+            <div class="card-content">
+                <span class="label">Registered 2002</span>
+                <div class="item-title">StingrayDigital.net</div>
+                <p class="desc">High-performance tech naming with a vintage edge. Impeccable registration record.</p>
+                <a href="mailto:morgan@burgess.com" class="btn">Inquire for Pricing</a>
             </div>
         </div>
-        
-         </div>
+    </div>
+</div>
+
+<div class="secondary-section">
+    <div class="container">
+        <div class="grid">
+            <div id="storage">
+                <h2>Secure Storage</h2>
+                <div class="card">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1506610654-064fbba47294?auto=format&fit=crop&q=80&w=800');"></div>
+                    <div class="card-content">
+                        <div class="item-title">Collector Grade Storage</div>
+                        <p class="desc">Climate-controlled, secure bays for classic cars, boats, and valuables. Keep your investment safe in a facility built by a collector.</p>
+                        <a href="mailto:morgan@burgess.com" class="btn">Check Availability</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="offices">
+                <h2>Professional Space</h2>
+                <div class="card">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=800');"></div>
+                    <div class="card-content">
+                        <div class="item-title">Executive Suite Rentals</div>
+                        <p class="desc">Modern, professional office rooms and business suites. Flexible terms for established businesses and startups alike.</p>
+                        <a href="mailto:morgan@burgess.com" class="btn">Tour the Suites</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <footer>
-    <div class="footer-logo">Morgan Burgess Estate</div>
-    <div class="copyright">&copy; 2026. All rights reserved. Strictly by appointment only.</div>
+    &copy; 2026 MORGAN BURGESS ENTERPRISES • SACRAMENTO, CA • BUILT FOR THE ROAD
 </footer>
 
 </body>

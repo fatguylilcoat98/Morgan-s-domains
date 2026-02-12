@@ -3,192 +3,297 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Burgess Collection | High-Performance Domains</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>The Burgess Concours Registry | Vintage Digital Assets</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --corvette-red: #c41e3a; /* Torch Red */
-            --chrome: #f0f0f0;
-            --carbon: #1a1a1a;
-            --asphalt: #0f0f0f;
-            --border: 1px solid rgba(255, 255, 255, 0.1);
+            --brass: #bfa473;
+            --deep-red: #8a2a2a;
+            --aged-paper: #f4ecd8;
+            --leather-brown: #3d2b1f;
+            --off-black: #1a1a1a;
         }
 
         body { 
-            background-color: var(--asphalt); 
-            color: var(--chrome); 
-            font-family: 'Montserrat', sans-serif; 
+            background-color: var(--leather-brown);
+            color: var(--off-black); 
+            font-family: 'Lora', serif; 
             margin: 0; 
             padding: 0;
             line-height: 1.6;
+            /* Vintage paper texture overlay */
+            background-image: url('https://www.transparenttextures.com/patterns/aged-paper.png');
         }
 
-        /* Subtle Carbon Fiber Texture Overlay */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            opacity: 0.03;
-            pointer-events: none;
-            background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+        /* Faux Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: center;
+            background: var(--off-black);
+            padding: 15px 0;
+            border-bottom: 3px solid var(--brass);
+        }
+        nav a {
+            color: var(--brass);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            margin: 0 20px;
+            font-weight: 700;
+            /* These are fake links */
+            pointer-events: none; 
+        }
+        nav a.active { color: var(--aged-paper); }
+
+
+        /* Hero Section with Vintage Corvette Image */
+        .hero {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            background: url('https://images.unsplash.com/photo-1539149399668-39d622157540?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-bottom: 5px double var(--brass);
         }
 
-        header { 
-            text-align: center; 
-            padding: 100px 20px;
-            background: linear-gradient(180deg, #222 0%, var(--asphalt) 100%);
-            border-bottom: 4px solid var(--corvette-red);
+        /* Sepia/Vintage Filter Overlay on the image */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top:0; left:0; right:0; bottom:0;
+            background: rgba(61, 43, 31, 0.7); /* Brown overlay */
+            mix-blend-mode: multiply;
         }
 
-        .crossed-flags {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            color: var(--corvette-red);
-            letter-spacing: 10px;
-            margin-bottom: 20px;
-            display: block;
-            font-weight: bold;
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: var(--aged-paper);
+            padding: 40px;
+            border: 2px solid var(--brass);
+            background: rgba(26, 26, 26, 0.8);
+            max-width: 700px;
         }
 
         h1 { 
-            font-family: 'Playfair Display', serif; 
-            font-size: clamp(2.5rem, 6vw, 4rem); 
-            margin: 0; 
-            color: #fff;
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: clamp(2rem, 5vw, 3.5rem); 
+            margin: 0 0 10px 0;
+            color: var(--brass);
             text-transform: uppercase;
             letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
-        .subtitle { 
-            font-size: 0.8rem; 
-            color: #888;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            margin-top: 10px;
+        .hero-subtitle {
+             font-size: 1.1rem;
+             font-style: italic;
+             color: var(--aged-paper);
         }
 
+        /* Main Container */
         .container { 
-            max-width: 1200px; 
+            max-width: 1100px; 
             margin: 60px auto; 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
-            gap: 40px; 
             padding: 0 30px;
         }
 
+        .intro-text {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 1.2rem;
+            color: var(--aged-paper);
+        }
+
+        /* Grid for Domain Cards */
+        .grid {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 40px; 
+        }
+
+        /* The "Auction Catalog" Style Card */
         .card { 
-            background: var(--carbon); 
-            padding: 50px 40px; 
-            border: var(--border);
-            border-top: 2px solid transparent;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
+            background: var(--aged-paper);
+            border: 3px double var(--brass);
+            box-shadow: 10px 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
         }
 
-        .card:hover { 
-            border-top: 2px solid var(--corvette-red);
-            background: #222;
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+        .card:hover {
+            transform: translateY(-5px);
         }
 
-        .generation {
-            font-size: 0.65rem;
-            background: var(--corvette-red);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 2px;
+        /* Decorative header for the card */
+        .card-header {
+            background: var(--off-black);
+            color: var(--brass);
+            padding: 10px;
+            text-align: center;
+            font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            font-weight: 700;
-            display: inline-block;
-            margin-bottom: 20px;
+            border-bottom: 2px solid var(--brass);
+        }
+
+        .card-body {
+            padding: 30px;
+            text-align: center;
+        }
+
+        /* Vintage Dashboard Dial Image */
+        .card-image {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            border: 3px solid var(--brass);
+            /* Placeholder image of a vintage speedometer */
+            background: url('https://images.unsplash.com/photo-1583295386576-6e240f4c6365?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80') center/cover;
+            filter: sepia(0.5) contrast(1.2);
         }
 
         .domain-name { 
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem; 
-            color: #fff; 
-            margin-bottom: 15px;
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 1.8rem; 
+            color: var(--deep-red); 
+            margin-bottom: 10px;
+            word-break: break-all;
+        }
+
+        .provenance {
             font-style: italic;
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--brass);
         }
 
-        .specs {
-            font-size: 0.85rem;
-            color: #777;
+        .specs-list {
+            list-style: none;
+            padding: 0;
             margin-bottom: 30px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            text-align: left;
+            display: inline-block;
         }
-
-        .description {
-            font-size: 0.95rem;
-            color: #bbb;
-            margin-bottom: 40px;
-            line-height: 1.8;
-            font-weight: 300;
+        
+        .specs-list li {
+            margin-bottom: 8px;
+            font-weight: 700;
+            color: var(--off-black);
+        }
+        .specs-list span {
+            font-weight: 400;
+            color: var(--deep-red);
+            margin-left: 10px;
         }
 
         .btn { 
             display: block; 
-            padding: 16px; 
-            background: transparent;
-            border: 1px solid var(--corvette-red);
-            color: var(--corvette-red); 
+            width: 100%;
+            padding: 15px 0; 
+            background: var(--off-black);
+            border: 1px solid var(--brass);
+            color: var(--brass); 
             text-decoration: none; 
-            font-size: 0.8rem; 
+            font-size: 0.9rem; 
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             font-weight: 700;
             transition: all 0.3s;
-            text-align: center;
         }
 
         .btn:hover { 
-            background: var(--corvette-red); 
-            color: #fff; 
-            box-shadow: 0 0 20px rgba(196, 30, 58, 0.4);
+            background: var(--deep-red); 
+            color: var(--aged-paper);
+            border-color: var(--deep-red);
         }
 
         footer {
+            background: var(--off-black);
             text-align: center;
-            padding: 80px 20px;
-            color: #444;
-            font-size: 0.7rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            border-top: var(--border);
+            padding: 60px 20px;
+            color: var(--brass);
+            border-top: 5px double var(--brass);
+            margin-top: 60px;
+        }
+        .footer-logo {
+             font-family: 'Cinzel Decorative', cursive;
+             font-size: 1.5rem;
+             margin-bottom: 20px;
+        }
+        .copyright {
+            font-size: 0.8rem;
+            opacity: 0.7;
         }
     </style>
 </head>
 <body>
 
-<header>
-    <span class="crossed-flags">M // B</span>
-    <h1>Morgan Burgess</h1>
-    <div class="subtitle">The Digital Stingray Registry</div>
+<nav>
+    <a href="#" class="active">The Registry</a>
+    <a href="#">Garage Finds</a>
+    <a href="#">About Morgan</a>
+    <a href="#">Private Treaty</a>
+</nav>
+
+<header class="hero">
+    <div class="hero-content">
+        <h1>The Burgess Concours Registry</h1>
+        <div class="hero-subtitle">Curators of Fine Digital Classics since 1998.</div>
+    </div>
 </header>
 
 <div class="container">
-    <div class="card">
-        <span class="generation">Gen 1 • Est. 1999</span>
-        <div class="domain-name">ClassicAsset.com</div>
-        <div class="specs">Original Owner • Low Latency</div>
-        <p class="description">A true survivor. This domain has been held in a private collection for over 25 years. Matching numbers history and high-tier authority.</p>
-        <a href="mailto:morgan@burgess.com?subject=Inquiry: ClassicAsset.com" class="btn">Inquire for Specs</a>
+    <div class="intro-text">
+        <p>Like a barn-find Stingray waiting for the right restorer, these digital assets have been privately held in a climate-controlled portfolio for over two decades. Rare, impeccably maintained, and ready for the auction block.</p>
     </div>
 
-    <div class="card">
-        <span class="generation">Gen 2 • Est. 2004</span>
-        <div class="domain-name">VelocityHub.net</div>
-        <div class="specs">Performance Tuned • SEO Ready</div>
-        <p class="description">High-performance branding with two decades of legacy. Perfect for a venture that requires speed and established trust.</p>
-        <a href="mailto:morgan@burgess.com?subject=Inquiry: VelocityHub.net" class="btn">Inquire for Specs</a>
-    </div>
+    <div class="grid">
+        <div class="card">
+            <div class="card-header">Lot No. 1999-A • Stingray Class</div>
+            <div class="card-body">
+                <div class="card-image"></div> <div class="domain-name">VintageMotor.com</div>
+                <div class="provenance">Provenance: Single Owner, Acquired 1999.</div>
+                
+                <ul class="specs-list">
+                    <li>Condition: <span>Concours Ready</span></li>
+                    <li>History: <span>Clean, No Accidents</span></li>
+                    <li>Authority: <span>Tier 1 Vintage</span></li>
+                </ul>
+
+                <a href="mailto:morgan@burgess.com?subject=Bid Inquiry: VintageMotor.com" class="btn">View Dossier & Inquire</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">Lot No. 2003-B • Big Block Class</div>
+            <div class="card-body">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1592853625601-bb9d23da12fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80');"></div>
+                <div class="domain-name">RedlineMedia.net</div>
+                <div class="provenance">Provenance: Private Collection, Acquired 2003.</div>
+                
+                <ul class="specs-list">
+                    <li>Condition: <span>Performance Tuned</span></li>
+                    <li>History: <span>Continuous Registration</span></li>
+                    <li>Authority: <span>High Octane</span></li>
+                </ul>
+
+                <a href="mailto:morgan@burgess.com?subject=Bid Inquiry: RedlineMedia.net" class="btn">View Dossier & Inquire</a>
+            </div>
+        </div>
+        
+         </div>
 </div>
 
 <footer>
-    &copy; 2026 Morgan Burgess • Private Collection • Built for Speed
+    <div class="footer-logo">Morgan Burgess Estate</div>
+    <div class="copyright">&copy; 2026. All rights reserved. Strictly by appointment only.</div>
 </footer>
 
 </body>
